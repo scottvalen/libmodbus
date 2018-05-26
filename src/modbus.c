@@ -711,7 +711,7 @@ static int response_exception(modbus_t *ctx, sft_t *sft,
 */
 int modbus_reply(modbus_t *ctx, const uint8_t *req,
                  int req_length, modbus_mapping_t *mb_mapping,
-                 unsigned int * exception)
+                 unsigned int *exception)
 {
     int offset;
     int slave;
