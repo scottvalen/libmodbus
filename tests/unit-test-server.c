@@ -180,7 +180,7 @@ int main(int argc, char*argv[])
             }
         }
 
-        rc = modbus_reply(ctx, query, rc, mb_mapping);
+        rc = modbus_reply(ctx, query, rc, mb_mapping, NULL);
         if (rc == -1) {
             break;
         }

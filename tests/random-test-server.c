@@ -40,7 +40,7 @@ int main(void)
         rc = modbus_receive(ctx, query);
         if (rc > 0) {
             /* rc is the query size */
-            modbus_reply(ctx, query, rc, mb_mapping);
+            modbus_reply(ctx, query, rc, mb_mapping, NULL);
         } else if (rc == -1) {
             /* Connection closed by the client or error */
             break;

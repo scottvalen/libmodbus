@@ -119,7 +119,7 @@ int main(void)
                 modbus_set_socket(ctx, master_socket);
                 rc = modbus_receive(ctx, query);
                 if (rc > 0) {
-                    modbus_reply(ctx, query, rc, mb_mapping);
+                    modbus_reply(ctx, query, rc, mb_mapping, NULL);
                 } else if (rc == -1) {
                     /* This example server in ended on connection closing or
                      * any errors. */

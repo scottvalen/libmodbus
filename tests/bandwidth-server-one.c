@@ -71,7 +71,7 @@ int main(int argc, char *argv[])
 
         rc = modbus_receive(ctx, query);
         if (rc > 0) {
-            modbus_reply(ctx, query, rc, mb_mapping);
+            modbus_reply(ctx, query, rc, mb_mapping, NULL);
         } else if (rc  == -1) {
             /* Connection closed by the client or error */
             break;
