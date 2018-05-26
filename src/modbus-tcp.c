@@ -498,7 +498,7 @@ int modbus_tcp_listen(modbus_t *ctx, int nb_connection)
     }
 #endif
 
-    new_s = socket(PF_INET, SOCK_STREAM, IPPROTO_TCP);
+    new_s = socket(PF_INET, SOCK_STREAM | SOCK_CLOEXEC, IPPROTO_TCP);
     if (new_s == -1) {
         return -1;
     }
@@ -577,7 +577,7 @@ int modbus_tcp_pi_listen(modbus_t *ctx, int nb_connection)
     ai_hints.ai_flags |= AI_ADDRCONFIG;
 #endif
     ai_hints.ai_family = AF_UNSPEC;
-    ai_hints.ai_socktype = SOCK_STREAM;
+    ai_hints.ai_socktype = SOCK_STREAM | SOCK_CLOEXEC;
     ai_hints.ai_addr = NULL;
     ai_hints.ai_canonname = NULL;
     ai_hints.ai_next = NULL;
