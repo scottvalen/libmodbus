@@ -42,6 +42,7 @@ typedef enum {
 } _step_t;
 
 const char *modbus_strerror(int errnum) {
+    static __thread char buffer[64];
     switch (errnum) {
     case EMBXILFUN:
         return "Illegal function";
@@ -74,7 +75,7 @@ const char *modbus_strerror(int errnum) {
     case EMBBADSLAVE:
         return "Response not from requested slave";
     default:
-        return strerror(errnum);
+        return strerror_r(errnum, buffer, sizeof(buffer) / sizeof(buffer[0]));
     }
 }
 
